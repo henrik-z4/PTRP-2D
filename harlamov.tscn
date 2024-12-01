@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bj4xy8uqlbvso"]
+
+[ext_resource type="Script" path="res://harlamov.gd" id="1_5rmt6"]
+[ext_resource type="Texture2D" uid="uid://twmelow6khtr" path="res://assets/yarik.png" id="1_aptf2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qdxw"]
+atlas = ExtResource("1_aptf2")
+region = Rect2(380, 0, 380, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gh53c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qdxw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xevk8"]
+size = Vector2(210, 186)
+
+[node name="harlamov" type="Area2D"]
+script = ExtResource("1_5rmt6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gh53c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-32, 7)
+shape = SubResource("RectangleShape2D_xevk8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

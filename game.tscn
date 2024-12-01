@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://bj8u1l5ghu6fk"]
+[gd_scene load_steps=9 format=4 uid="uid://bj8u1l5ghu6fk"]
 
 [ext_resource type="Texture2D" uid="uid://nv843ubt0kp2" path="res://assets/TileMap.png" id="1_qrvl3"]
 [ext_resource type="Texture2D" uid="uid://cqg8ly3msq8x6" path="res://assets/door.png" id="2_eklw8"]
 [ext_resource type="PackedScene" uid="uid://34pad26l6jjg" path="res://main_character.tscn" id="3_uup3g"]
 [ext_resource type="Script" path="res://main_character.gd" id="4_ces3k"]
+[ext_resource type="PackedScene" uid="uid://bj4xy8uqlbvso" path="res://harlamov.tscn" id="5_4jt86"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21r3w"]
 texture = ExtResource("1_qrvl3")
@@ -59,5 +60,27 @@ tile_map_data = PackedByteArray("AAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAABAAcAAgAAAAA
 tile_set = SubResource("TileSet_1yixn")
 
 [node name="main_character" parent="." instance=ExtResource("3_uup3g")]
+unique_name_in_owner = true
 position = Vector2(162, 512)
 script = ExtResource("4_ces3k")
+
+[node name="harlamov" parent="." instance=ExtResource("5_4jt86")]
+position = Vector2(749, 510)
+scale = Vector2(0.5, 0.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 580.0
+offset_top = 303.0
+offset_right = 806.0
+offset_bottom = 449.0
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 591.0
+offset_top = 313.0
+offset_right = 798.0
+offset_bottom = 439.0
+text = "Гевик: Что случилось, Харламов? Почему ты такой растерянный?"
+autowrap_mode = 3

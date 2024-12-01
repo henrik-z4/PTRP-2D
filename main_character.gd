@@ -3,8 +3,12 @@ extends CharacterBody2D
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -500.0
+var ignore_inputs: bool = false
 
 func _physics_process(delta: float) -> void:
+	if ignore_inputs:
+		return
+	
 	if (abs(velocity.x) > 0):
 		main_character.play("running")
 	else:
@@ -23,3 +27,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, 12)
 
 	move_and_slide()
+
+func stop_movement() -> void:
+	velocity = Vector2.ZERO
+	main_character.play("default")
+	ignore_inputs = true
+
+func start_movement() -> void:
+	ignore_inputs = false

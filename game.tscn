@@ -1,3 +1,63 @@
-[gd_scene format=3 uid="uid://bj8u1l5ghu6fk"]
+[gd_scene load_steps=8 format=4 uid="uid://bj8u1l5ghu6fk"]
+
+[ext_resource type="Texture2D" uid="uid://nv843ubt0kp2" path="res://assets/TileMap.png" id="1_qrvl3"]
+[ext_resource type="Texture2D" uid="uid://cqg8ly3msq8x6" path="res://assets/door.png" id="2_eklw8"]
+[ext_resource type="PackedScene" uid="uid://34pad26l6jjg" path="res://main_character.tscn" id="3_uup3g"]
+[ext_resource type="Script" path="res://main_character.gd" id="4_ces3k"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21r3w"]
+texture = ExtResource("1_qrvl3")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:4/0 = 0
+6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_id0wj"]
+texture = ExtResource("2_eklw8")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1yixn"]
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_21r3w")
+sources/3 = SubResource("TileSetAtlasSource_id0wj")
 
 [node name="Node" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.806368, 0.84776, 0.946339, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+use_parent_material = true
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAABAAcAAgAAAAAAAAABAAgAAgAAAAAAAAACAAcAAgAAAAAAAAACAAgAAgAAAAAAAAADAAcAAgAAAAAAAAADAAgAAgAAAAAAAAAEAAcAAgAAAAAAAAAEAAgAAgAAAAAAAAAFAAcAAgAAAAAAAAAFAAgAAgAAAAAAAAAGAAcAAgAAAAAAAAAGAAgAAgAAAAAAAAAHAAcAAgAAAAAAAAAHAAgAAgAAAAAAAAAIAAcAAgAAAAAAAAAIAAgAAgAAAAAAAAAJAAcAAgAAAAAAAAAJAAgAAgAAAAAAAAAKAAcAAgAAAAAAAAAKAAgAAgAAAAAAAAALAAcAAgAAAAAAAAALAAgAAgAAAAAAAAAMAAcAAgAAAAAAAAAMAAgAAgAAAAAAAAANAAcAAgAAAAAAAAANAAgAAgAAAAAAAAAOAAgAAgAAAAAAAAALAAYAAgAEAAIAAAAAAAUAAgAGAAIAAAAAAAYAAwAAAAAAAAAAAAAAAgACAAAAAAAAAAEAAgAAAAIAAAAAAAIAAgAAAAIAAAAAAAMAAgAAAAIAAAAAAAQAAgAAAAIAAAABAAAAAgACAAAAAAACAAAAAgACAAAAAAADAAAAAgACAAAAAAAEAAAAAgACAAAAAAAFAAAAAgACAAAAAAAGAAAAAgACAAAAAAAHAAAAAgACAAAAAAAIAAAAAgACAAAAAAAJAAAAAgACAAAAAAAKAAAAAgACAAAAAAALAAAAAgACAAAAAAAMAAAAAgACAAAAAAANAAAAAgACAAAAAAAOAAAAAgACAAAAAAAOAAEAAgACAAAAAAAOAAIAAgACAAAAAAAOAAMAAgACAAAAAAAOAAQAAgACAAAAAAAOAAUAAgACAAAAAAAOAAYAAgACAAAAAAAOAAcAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_1yixn")
+
+[node name="main_character" parent="." instance=ExtResource("3_uup3g")]
+position = Vector2(162, 512)
+script = ExtResource("4_ces3k")

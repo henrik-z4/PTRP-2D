@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nv843ubt0kp2"
-path="res://.godot/imported/TileMap.png-c10cff5c8bd39120a09625b2f5ab5a62.ctex"
+uid="uid://twmelow6khtr"
+path="res://.godot/imported/yarik.png-c045c64ea04dcdcb4ac9a4166d31b1d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/TileMap.png"
-dest_files=["res://.godot/imported/TileMap.png-c10cff5c8bd39120a09625b2f5ab5a62.ctex"]
+source_file="res://assets/yarik.png"
+dest_files=["res://.godot/imported/yarik.png-c045c64ea04dcdcb4ac9a4166d31b1d5.ctex"]
 
 [params]
 

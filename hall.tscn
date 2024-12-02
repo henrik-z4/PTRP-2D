@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://35qruwdqe5x8"]
+[gd_scene load_steps=5 format=4 uid="uid://35qruwdqe5x8"]
+
+[ext_resource type="PackedScene" uid="uid://34pad26l6jjg" path="res://main_character.tscn" id="1_miu7a"]
+[ext_resource type="Script" path="res://main_character.gd" id="2_crc24"]
+[ext_resource type="PackedScene" uid="uid://dpncatk8uc2lm" path="res://target_label.tscn" id="3_3ku4p"]
+[ext_resource type="TileSet" uid="uid://ie34udps1u6l" path="res://default_tilemap.tres" id="4_dow2t"]
 
 [node name="Node" type="Node"]
+
+[node name="main_character" parent="." instance=ExtResource("1_miu7a")]
+position = Vector2(586, 506)
+script = ExtResource("2_crc24")
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="main_character"]
+position = Vector2(2, -50)
+position_smoothing_enabled = true
+
+[node name="Target_label" parent="." instance=ExtResource("3_3ku4p")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAAAAAcAAgAEAAAAAAABAAcAAgAEAAAAAAACAAcAAgAEAAAAAAADAAcAAgAEAAAAAAAEAAcAAgAEAAAAAAAFAAcAAgAEAAAAAAAGAAcAAgAEAAAAAAAHAAcAAgAEAAAAAAAIAAcAAgAEAAAAAAAJAAcAAgAEAAAAAAAKAAcAAgAEAAAAAAALAAcAAgAEAAAAAAAMAAcAAgAEAAAAAAANAAcAAgAEAAAAAAAOAAcAAgAEAAAAAAD8/wcAAgAEAAAAAAD9/wcAAgAEAAAAAAD+/wcAAgAEAAAAAAD//wcAAgAEAAAAAAAPAAcAAgAEAAAAAAAQAAcAAgAEAAAAAAARAAcAAgAEAAAAAAASAAcAAgAEAAAAAAATAAcAAgAEAAAAAAD7/wcAAgAEAAAAAAA=")
+tile_set = ExtResource("4_dow2t")

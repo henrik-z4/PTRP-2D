@@ -1,74 +1,31 @@
-[gd_scene load_steps=13 format=4 uid="uid://bj8u1l5ghu6fk"]
+[gd_scene load_steps=11 format=4 uid="uid://bj8u1l5ghu6fk"]
 
-[ext_resource type="Texture2D" uid="uid://nv843ubt0kp2" path="res://assets/TileMap.png" id="1_qrvl3"]
-[ext_resource type="Texture2D" uid="uid://cqg8ly3msq8x6" path="res://assets/door.png" id="2_eklw8"]
+[ext_resource type="TileSet" uid="uid://ie34udps1u6l" path="res://default_tilemap.tres" id="1_duwmk"]
 [ext_resource type="PackedScene" uid="uid://34pad26l6jjg" path="res://main_character.tscn" id="3_uup3g"]
 [ext_resource type="Script" path="res://main_character.gd" id="4_ces3k"]
 [ext_resource type="PackedScene" uid="uid://bj4xy8uqlbvso" path="res://harlamov.tscn" id="5_4jt86"]
 [ext_resource type="PackedScene" uid="uid://vmdsjjnj1kkt" path="res://angel.tscn" id="6_p8pf8"]
-[ext_resource type="Texture2D" uid="uid://d1n4qtxr05vhg" path="res://assets/target_icon.png" id="7_a68p8"]
+[ext_resource type="PackedScene" uid="uid://dpncatk8uc2lm" path="res://target_label.tscn" id="6_rwuon"]
 [ext_resource type="Script" path="res://door.gd" id="8_3uw5b"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21r3w"]
-texture = ExtResource("1_qrvl3")
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:0/0 = 0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-6:0/0 = 0
-6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-0:2/0 = 0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:2/0 = 0
-4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-6:2/0 = 0
-6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-0:4/0 = 0
-0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:4/0 = 0
-2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:4/0 = 0
-4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-6:4/0 = 0
-6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_id0wj"]
-texture = ExtResource("2_eklw8")
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_1yixn"]
-physics_layer_0/collision_layer = 1
-sources/2 = SubResource("TileSetAtlasSource_21r3w")
-sources/3 = SubResource("TileSetAtlasSource_id0wj")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3igca"]
 size = Vector2(81, 160)
 
-[node name="Node" type="Node"]
+[sub_resource type="Gradient" id="Gradient_n27op"]
+offsets = PackedFloat32Array(0, 0.438776, 1)
+colors = PackedColorArray(0.182112, 0.244189, 0.42995, 1, 0.127595, 0.143408, 0.184965, 1, 0.0768358, 0.0768358, 0.0768358, 1)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.806368, 0.84776, 0.946339, 1)
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_28lwj"]
+gradient = SubResource("Gradient_n27op")
+
+[node name="Node" type="Node"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
 use_parent_material = true
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAABAAcAAgAAAAAAAAABAAgAAgAAAAAAAAACAAcAAgAAAAAAAAACAAgAAgAAAAAAAAADAAcAAgAAAAAAAAADAAgAAgAAAAAAAAAEAAcAAgAAAAAAAAAEAAgAAgAAAAAAAAAFAAcAAgAAAAAAAAAFAAgAAgAAAAAAAAAGAAcAAgAAAAAAAAAGAAgAAgAAAAAAAAAHAAcAAgAAAAAAAAAHAAgAAgAAAAAAAAAIAAcAAgAAAAAAAAAIAAgAAgAAAAAAAAAJAAcAAgAAAAAAAAAJAAgAAgAAAAAAAAAKAAcAAgAAAAAAAAAKAAgAAgAAAAAAAAALAAcAAgAAAAAAAAALAAgAAgAAAAAAAAAMAAcAAgAAAAAAAAAMAAgAAgAAAAAAAAANAAcAAgAAAAAAAAANAAgAAgAAAAAAAAAOAAgAAgAAAAAAAAALAAYAAgAEAAIAAAAAAAUAAgAGAAIAAAAAAAYAAwAAAAAAAAAAAAAAAgACAAAAAAAAAAEAAgAAAAIAAAAAAAIAAgAAAAIAAAAAAAMAAgAAAAIAAAAAAAQAAgAAAAIAAAABAAAAAgACAAAAAAACAAAAAgACAAAAAAADAAAAAgACAAAAAAAEAAAAAgACAAAAAAAFAAAAAgACAAAAAAAGAAAAAgACAAAAAAAHAAAAAgACAAAAAAAIAAAAAgACAAAAAAAJAAAAAgACAAAAAAAKAAAAAgACAAAAAAALAAAAAgACAAAAAAAMAAAAAgACAAAAAAANAAAAAgACAAAAAAAOAAAAAgACAAAAAAAOAAEAAgACAAAAAAAOAAIAAgACAAAAAAAOAAMAAgACAAAAAAAOAAQAAgACAAAAAAAOAAUAAgACAAAAAAAOAAYAAgACAAAAAAAOAAcAAgAAAAAAAAA=")
-tile_set = SubResource("TileSet_1yixn")
-
-[node name="main_character" parent="." instance=ExtResource("3_uup3g")]
-unique_name_in_owner = true
-position = Vector2(162, 512)
-script = ExtResource("4_ces3k")
+tile_map_data = PackedByteArray("AAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAABAAcAAgAAAAAAAAABAAgAAgAAAAAAAAACAAcAAgAAAAAAAAACAAgAAgAAAAAAAAADAAcAAgAAAAAAAAADAAgAAgAAAAAAAAAEAAcAAgAAAAAAAAAEAAgAAgAAAAAAAAAFAAcAAgAAAAAAAAAFAAgAAgAAAAAAAAAGAAcAAgAAAAAAAAAGAAgAAgAAAAAAAAAHAAcAAgAAAAAAAAAHAAgAAgAAAAAAAAAIAAcAAgAAAAAAAAAIAAgAAgAAAAAAAAAJAAcAAgAAAAAAAAAJAAgAAgAAAAAAAAAKAAcAAgAAAAAAAAAKAAgAAgAAAAAAAAALAAcAAgAAAAAAAAALAAgAAgAAAAAAAAAMAAcAAgAAAAAAAAAMAAgAAgAAAAAAAAANAAcAAgAAAAAAAAANAAgAAgAAAAAAAAAOAAgAAgAAAAAAAAALAAYAAgAEAAIAAAAAAAUAAgAGAAIAAAAAAAYAAwAAAAAAAAAAAAAAAgACAAAAAAAAAAEAAgAAAAIAAAAAAAIAAgAAAAIAAAAAAAMAAgAAAAIAAAAAAAQAAgAAAAIAAAABAAAAAgACAAAAAAACAAAAAgACAAAAAAADAAAAAgACAAAAAAAEAAAAAgACAAAAAAAFAAAAAgACAAAAAAAGAAAAAgACAAAAAAAHAAAAAgACAAAAAAAIAAAAAgACAAAAAAAJAAAAAgACAAAAAAAKAAAAAgACAAAAAAALAAAAAgACAAAAAAAMAAAAAgACAAAAAAANAAAAAgACAAAAAAAOAAAAAgACAAAAAAAOAAEAAgACAAAAAAAOAAIAAgACAAAAAAAOAAMAAgACAAAAAAAOAAQAAgACAAAAAAAOAAUAAgACAAAAAAAOAAYAAgACAAAAAAAOAAcAAgAAAAAAAAD//wgAAgAAAAAAAAD//wcAAgAAAAAAAAD//wAAAgAAAAAAAAD7/wAAAgAAAAAAAAD7/wcAAgAAAAAAAAD7/wgAAgAAAAAAAAD8/wAAAgAAAAAAAAD8/wcAAgAAAAAAAAD8/wgAAgAAAAAAAAD9/wAAAgAAAAAAAAD9/wcAAgAAAAAAAAD9/wgAAgAAAAAAAAD+/wAAAgAAAAAAAAD+/wcAAgAAAAAAAAD+/wgAAgAAAAAAAAD//wkAAgAAAAAAAAD//woAAgAAAAAAAAD//wsAAgAAAAAAAAAAAAkAAgAAAAAAAAAAAAoAAgAAAAAAAAAAAAsAAgAAAAAAAAABAAkAAgAAAAAAAAABAAoAAgAAAAAAAAABAAsAAgAAAAAAAAACAAkAAgAAAAAAAAACAAoAAgAAAAAAAAACAAsAAgAAAAAAAAADAAkAAgAAAAAAAAADAAoAAgAAAAAAAAADAAsAAgAAAAAAAAAEAAkAAgAAAAAAAAAEAAoAAgAAAAAAAAAEAAsAAgAAAAAAAAAFAAkAAgAAAAAAAAAFAAoAAgAAAAAAAAAFAAsAAgAAAAAAAAAGAAkAAgAAAAAAAAAGAAoAAgAAAAAAAAAGAAsAAgAAAAAAAAAHAAkAAgAAAAAAAAAHAAoAAgAAAAAAAAAHAAsAAgAAAAAAAAAIAAkAAgAAAAAAAAAIAAoAAgAAAAAAAAAIAAsAAgAAAAAAAAAJAAkAAgAAAAAAAAAJAAoAAgAAAAAAAAAJAAsAAgAAAAAAAAAKAAkAAgAAAAAAAAAKAAoAAgAAAAAAAAAKAAsAAgAAAAAAAAALAAkAAgAAAAAAAAALAAoAAgAAAAAAAAALAAsAAgAAAAAAAAAMAAkAAgAAAAAAAAAMAAoAAgAAAAAAAAAMAAsAAgAAAAAAAAANAAkAAgAAAAAAAAANAAoAAgAAAAAAAAANAAsAAgAAAAAAAAAOAAkAAgAAAAAAAAAOAAoAAgAAAAAAAAAOAAsAAgAAAAAAAAAPAAAAAgAAAAAAAAAPAAEAAgAAAAAAAAAPAAIAAgAAAAAAAAAPAAMAAgAAAAAAAAAPAAQAAgAAAAAAAAAPAAUAAgAAAAAAAAAPAAYAAgAAAAAAAAAQAAAAAgAAAAAAAAAQAAEAAgAAAAAAAAAQAAIAAgAAAAAAAAAQAAMAAgAAAAAAAAAQAAQAAgAAAAAAAAAQAAUAAgAAAAAAAAAQAAYAAgAAAAAAAAARAAAAAgAAAAAAAAARAAEAAgAAAAAAAAARAAIAAgAAAAAAAAARAAMAAgAAAAAAAAARAAQAAgAAAAAAAAARAAUAAgAAAAAAAAARAAYAAgAAAAAAAAASAAAAAgAAAAAAAAASAAEAAgAAAAAAAAASAAIAAgAAAAAAAAASAAMAAgAAAAAAAAASAAQAAgAAAAAAAAASAAUAAgAAAAAAAAASAAYAAgAAAAAAAAD///3/AgAAAAAAAAD///7/AgAAAAAAAAD/////AgAAAAAAAAAAAP3/AgAAAAAAAAAAAP7/AgAAAAAAAAAAAP//AgAAAAAAAAABAP3/AgAAAAAAAAABAP7/AgAAAAAAAAABAP//AgAAAAAAAAACAP3/AgAAAAAAAAACAP7/AgAAAAAAAAACAP//AgAAAAAAAAADAP3/AgAAAAAAAAADAP7/AgAAAAAAAAADAP//AgAAAAAAAAAEAP3/AgAAAAAAAAAEAP7/AgAAAAAAAAAEAP//AgAAAAAAAAAFAP3/AgAAAAAAAAAFAP7/AgAAAAAAAAAFAP//AgAAAAAAAAAGAP3/AgAAAAAAAAAGAP7/AgAAAAAAAAAGAP//AgAAAAAAAAAHAP3/AgAAAAAAAAAHAP7/AgAAAAAAAAAHAP//AgAAAAAAAAAIAP3/AgAAAAAAAAAIAP7/AgAAAAAAAAAIAP//AgAAAAAAAAAJAP3/AgAAAAAAAAAJAP7/AgAAAAAAAAAJAP//AgAAAAAAAAAKAP3/AgAAAAAAAAAKAP7/AgAAAAAAAAAKAP//AgAAAAAAAAALAP3/AgAAAAAAAAALAP7/AgAAAAAAAAALAP//AgAAAAAAAAAMAP3/AgAAAAAAAAAMAP7/AgAAAAAAAAAMAP//AgAAAAAAAAANAP3/AgAAAAAAAAANAP7/AgAAAAAAAAANAP//AgAAAAAAAAAOAP3/AgAAAAAAAAAOAP7/AgAAAAAAAAAOAP//AgAAAAAAAAD9//7/AgAAAAAAAAD9////AgAAAAAAAAD+//7/AgAAAAAAAAD+////AgAAAAAAAAAPAP7/AgAAAAAAAAAPAP//AgAAAAAAAAAQAP7/AgAAAAAAAAAQAP//AgAAAAAAAAAPAAcAAgAAAAAAAAAPAAgAAgAAAAAAAAAQAAcAAgAAAAAAAAAQAAgAAgAAAAAAAAARAAcAAgAAAAAAAAARAAgAAgAAAAAAAAASAAcAAgAAAAAAAAASAAgAAgAAAAAAAAD7////AgAAAAAAAAD8////AgAAAAAAAAD7//z/AgAAAAAAAAD7//3/AgAAAAAAAAD7//7/AgAAAAAAAAD8//z/AgAAAAAAAAD8//3/AgAAAAAAAAD8//7/AgAAAAAAAAD9//z/AgAAAAAAAAD9//3/AgAAAAAAAAD+//z/AgAAAAAAAAD+//3/AgAAAAAAAAD///z/AgAAAAAAAAAAAPz/AgAAAAAAAAAOAPz/AgAAAAAAAAAPAPz/AgAAAAAAAAAPAP3/AgAAAAAAAAAQAPz/AgAAAAAAAAAQAP3/AgAAAAAAAAARAPz/AgAAAAAAAAARAP3/AgAAAAAAAAARAP7/AgAAAAAAAAARAP//AgAAAAAAAAASAPz/AgAAAAAAAAASAP3/AgAAAAAAAAASAP7/AgAAAAAAAAASAP//AgAAAAAAAAAOAPv/AgAAAAAAAAAPAPv/AgAAAAAAAAAQAPv/AgAAAAAAAAARAPv/AgAAAAAAAAASAPv/AgAAAAAAAAALAPv/AgAAAAAAAAALAPz/AgAAAAAAAAAMAPv/AgAAAAAAAAAMAPz/AgAAAAAAAAANAPv/AgAAAAAAAAANAPz/AgAAAAAAAAAPAAkAAgAAAAAAAAAPAAoAAgAAAAAAAAAQAAkAAgAAAAAAAAAQAAoAAgAAAAAAAAARAAkAAgAAAAAAAAARAAoAAgAAAAAAAAD8/wkAAgAAAAAAAAD8/woAAgAAAAAAAAD9/wkAAgAAAAAAAAD9/woAAgAAAAAAAAD+/wkAAgAAAAAAAAD+/woAAgAAAAAAAAA=")
+tile_set = ExtResource("1_duwmk")
 
 [node name="harlamov" parent="." instance=ExtResource("5_4jt86")]
 position = Vector2(749, 510)
@@ -80,6 +37,7 @@ scale = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
+follow_viewport_enabled = true
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 offset_left = 580.0
@@ -95,32 +53,7 @@ offset_bottom = 439.0
 text = "Гевик: Что случилось, Харламов? Почему ты такой растерянный?"
 autowrap_mode = 3
 
-[node name="Target_label" type="CanvasLayer" parent="."]
-
-[node name="Panel" type="Panel" parent="Target_label"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -303.0
-offset_top = 97.0
-offset_right = 303.0
-offset_bottom = 157.0
-grow_horizontal = 2
-
-[node name="TextureRect" type="TextureRect" parent="Target_label"]
-offset_left = 279.0
-offset_top = 96.0
-offset_right = 339.0
-offset_bottom = 156.0
-texture = ExtResource("7_a68p8")
-
-[node name="Label" type="Label" parent="Target_label"]
-offset_left = 354.0
-offset_top = 104.0
-offset_right = 870.0
-offset_bottom = 148.0
-text = "Поговорите с Харламовым и Ангелом"
-vertical_alignment = 1
+[node name="Target_label" parent="." instance=ExtResource("6_rwuon")]
 
 [node name="hint_1" type="Label" parent="."]
 visible = false
@@ -148,5 +81,21 @@ metadata/_edit_group_ = true
 [node name="door_collision" type="CollisionShape2D" parent="Door"]
 position = Vector2(30.5, 70)
 shape = SubResource("RectangleShape2D_3igca")
+
+[node name="main_character" parent="." instance=ExtResource("3_uup3g")]
+unique_name_in_owner = true
+position = Vector2(162, 512)
+script = ExtResource("4_ces3k")
+
+[node name="Camera2D" type="Camera2D" parent="main_character"]
+position = Vector2(30.6667, -38.3333)
+scale = Vector2(0.333333, 0.333333)
+position_smoothing_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -400.0
+offset_top = 80.0
+offset_bottom = 560.0
+texture = SubResource("GradientTexture1D_28lwj")
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]

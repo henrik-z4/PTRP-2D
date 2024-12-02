@@ -1,9 +1,16 @@
 extends CharacterBody2D
 @onready var main_character: AnimatedSprite2D = $main_character
+@onready var target_label: CanvasLayer = $"../Target_label"
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -500.0
 var ignore_inputs: bool = false
+
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("target"):
+		target_label.visible = true
+	else:
+		target_label.visible = false
 
 func _physics_process(delta: float) -> void:
 	if ignore_inputs:

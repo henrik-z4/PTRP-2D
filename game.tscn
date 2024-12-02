@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://bj8u1l5ghu6fk"]
+[gd_scene load_steps=13 format=4 uid="uid://bj8u1l5ghu6fk"]
 
 [ext_resource type="Texture2D" uid="uid://nv843ubt0kp2" path="res://assets/TileMap.png" id="1_qrvl3"]
 [ext_resource type="Texture2D" uid="uid://cqg8ly3msq8x6" path="res://assets/door.png" id="2_eklw8"]
 [ext_resource type="PackedScene" uid="uid://34pad26l6jjg" path="res://main_character.tscn" id="3_uup3g"]
 [ext_resource type="Script" path="res://main_character.gd" id="4_ces3k"]
 [ext_resource type="PackedScene" uid="uid://bj4xy8uqlbvso" path="res://harlamov.tscn" id="5_4jt86"]
+[ext_resource type="PackedScene" uid="uid://vmdsjjnj1kkt" path="res://angel.tscn" id="6_p8pf8"]
+[ext_resource type="Texture2D" uid="uid://d1n4qtxr05vhg" path="res://assets/target_icon.png" id="7_a68p8"]
+[ext_resource type="Script" path="res://door.gd" id="8_3uw5b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21r3w"]
 texture = ExtResource("1_qrvl3")
@@ -42,6 +45,9 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_21r3w")
 sources/3 = SubResource("TileSetAtlasSource_id0wj")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3igca"]
+size = Vector2(81, 160)
+
 [node name="Node" type="Node"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -68,6 +74,10 @@ script = ExtResource("4_ces3k")
 position = Vector2(749, 510)
 scale = Vector2(0.5, 0.5)
 
+[node name="angel" parent="." instance=ExtResource("6_p8pf8")]
+position = Vector2(1013, 489)
+scale = Vector2(2, 2)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
@@ -84,3 +94,59 @@ offset_right = 798.0
 offset_bottom = 439.0
 text = "Гевик: Что случилось, Харламов? Почему ты такой растерянный?"
 autowrap_mode = 3
+
+[node name="Target_label" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="Target_label"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -303.0
+offset_top = 97.0
+offset_right = 303.0
+offset_bottom = 157.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="Target_label"]
+offset_left = 279.0
+offset_top = 96.0
+offset_right = 339.0
+offset_bottom = 156.0
+texture = ExtResource("7_a68p8")
+
+[node name="Label" type="Label" parent="Target_label"]
+offset_left = 354.0
+offset_top = 104.0
+offset_right = 870.0
+offset_bottom = 148.0
+text = "Поговорите с Харламовым и Ангелом"
+vertical_alignment = 1
+
+[node name="hint_1" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 17.0
+offset_right = 240.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Для отображения текущей цели, зажмите клавишу TAB"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Door" type="Area2D" parent="."]
+position = Vector2(10, 410)
+script = ExtResource("8_3uw5b")
+metadata/_edit_group_ = true
+
+[node name="door_collision" type="CollisionShape2D" parent="Door"]
+position = Vector2(30.5, 70)
+shape = SubResource("RectangleShape2D_3igca")
+
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]

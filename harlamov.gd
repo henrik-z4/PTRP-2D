@@ -2,6 +2,7 @@ extends Area2D
 @onready var main_character: CharacterBody2D = %main_character
 @onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 @onready var label: Label = $"../CanvasLayer/Label"
+
 var dialogue_shown: bool = false
 
 func _on_body_entered(body: Node2D) -> void:

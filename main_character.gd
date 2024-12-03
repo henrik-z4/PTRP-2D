@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var target_label: CanvasLayer = $"../Target_label"
 
 const SPEED = 400.0
-const JUMP_VELOCITY = -500.0
+const JUMP_VELOCITY = -800.0
 var ignore_inputs: bool = false
 
 func _process(delta: float) -> void:

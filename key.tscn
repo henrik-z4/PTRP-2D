@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8jotxjkh73cg"]
+
+[ext_resource type="Texture2D" uid="uid://cv7epuefm7g1j" path="res://assets/key.png" id="1_7ff3c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dk48x"]
+radius = 18.0
+height = 58.0
+
+[node name="key" type="Area2D"]
+
+[node name="key_sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_7ff3c")
+
+[node name="key_collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_dk48x")

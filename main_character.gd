@@ -42,3 +42,8 @@ func stop_movement() -> void:
 
 func start_movement() -> void:
 	ignore_inputs = false
+
+func _ready() -> void:
+	if GameState.player_position != Vector2.ZERO:
+		global_position = GameState.player_position
+		GameState.player_position = Vector2.ZERO

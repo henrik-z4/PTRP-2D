@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var target_position: Vector2 = Vector2.ZERO
+
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "main_character":
-		get_tree().change_scene_to_file("res://chixir.tscn")
+	if body.name == "main_character" and GameState.dialogue_finished:
+		pass

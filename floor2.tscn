@@ -98,4 +98,7 @@ position = Vector2(-3634, 446)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("6_1hsvk")
 
+[connection signal="body_entered" from="statham" to="statham" method="_on_body_entered"]
+[connection signal="body_entered" from="statham2" to="statham2" method="_on_body_entered"]
+[connection signal="body_entered" from="statham3" to="statham3" method="_on_body_entered"]
 [connection signal="body_entered" from="statham4" to="statham4" method="_on_body_entered"]

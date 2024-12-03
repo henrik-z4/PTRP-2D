@@ -6,13 +6,13 @@ extends Area2D
 @onready var hint_1: Label = $"../hint_1"
 @onready var door: Area2D = $"../Door"
 
-var dialogue_shown: bool = false
+# var dialogue_shown: bool = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if dialogue_shown:
+	if GameState.dialogue_finished:
 		return
 	if (body.name == "main_character"):
-		dialogue_shown = true
+		GameState.dialogue_shown = true
 		$Sprite2D.flip_h = true
 		main_character.stop_movement()
 		canvas_layer.offset = Vector2(230,0)
@@ -42,8 +42,8 @@ func _on_body_entered(body: Node2D) -> void:
 		$Sprite2D.flip_h = false
 		main_character.start_movement()
 		target_label.text = "Посетите Солнце. Её кабинет должен быть неподалеку"
+		GameState.dialogue_finished = true
 		
 		hint_1.visible = true
 		await get_tree().create_timer(6.0).timeout
 		hint_1.visible = false
-		door.dialogue_finished = true

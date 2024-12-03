@@ -3,13 +3,13 @@ extends Area2D
 @onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 @onready var label: Label = $"../CanvasLayer/Label"
 
-var dialogue_shown: bool = false
+# var dialogue_shown: bool = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if dialogue_shown:
+	if GameState.dialogue_shown:
 		return
 	if (body.name == "main_character"):
-		dialogue_shown = true
+		GameState.dialogue_shown = true
 		$AnimatedSprite2D.flip_h = true
 		main_character.stop_movement()
 		canvas_layer.visible = true

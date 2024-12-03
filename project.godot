@@ -15,6 +15,10 @@ run/main_scene="res://mainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameState="*res://GameState.gd"
+
 [display]
 
 window/main_scene=""
@@ -48,4 +52,4 @@ target={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.807843, 0.847059, 0.945098, 1)
+environment/defaults/default_clear_color=Color(0.756863, 0.913725, 0.913725, 1)

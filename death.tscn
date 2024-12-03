@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwh7qeu0pu2dd"]
+
+[ext_resource type="Script" path="res://try_again.gd" id="1_7oeb7"]
+
+[node name="deathscreen" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.0646965, 0.0646965, 0.0646965, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 535.0
+offset_top = 108.0
+offset_right = 603.0
+offset_bottom = 243.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 96
+text = ":("
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 322.0
+offset_top = 243.0
+offset_right = 822.0
+offset_bottom = 334.0
+theme_override_font_sizes/font_size = 66
+text = "Вы отчислены."
+
+[node name="try_again" type="Button" parent="."]
+offset_left = 430.0
+offset_top = 415.0
+offset_right = 724.0
+offset_bottom = 487.0
+text = "Попробовать снова"
+script = ExtResource("1_7oeb7")
+
+[connection signal="pressed" from="try_again" to="try_again" method="_on_pressed"]

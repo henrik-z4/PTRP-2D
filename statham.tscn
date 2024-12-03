@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://wjljvxmdub2h"]
+
+[ext_resource type="Texture2D" uid="uid://bypso0a68i7gt" path="res://assets/Jason-Statham.png" id="1_ij0kh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tj5w3"]
+radius = 93.0
+height = 452.0
+
+[node name="statham" type="Area2D"]
+
+[node name="statham_col" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_tj5w3")
+
+[node name="statham_spr" type="Sprite2D" parent="."]
+scale = Vector2(0.19845, 0.19845)
+texture = ExtResource("1_ij0kh")

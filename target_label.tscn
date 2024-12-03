@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpncatk8uc2lm"]
+[gd_scene load_steps=3 format=3 uid="uid://dpncatk8uc2lm"]
 
+[ext_resource type="Script" path="res://target_label.gd" id="1_8vd43"]
 [ext_resource type="Texture2D" uid="uid://d1n4qtxr05vhg" path="res://assets/target_icon.png" id="1_d51g1"]
 
 [node name="Target_label" type="CanvasLayer"]
+script = ExtResource("1_8vd43")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 5
@@ -26,5 +28,4 @@ offset_left = 354.0
 offset_top = 104.0
 offset_right = 870.0
 offset_bottom = 148.0
-text = "Поговорите с Харламовым и Ангелом"
 vertical_alignment = 1

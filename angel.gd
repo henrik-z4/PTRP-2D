@@ -41,7 +41,6 @@ func _on_body_entered(body: Node2D) -> void:
 		canvas_layer.visible = false
 		$Sprite2D.flip_h = false
 		main_character.start_movement()
-		target_label.text = "Посетите Солнце. Её кабинет должен быть неподалеку"
 		GameState.dialogue_finished = true
 		
 		hint_1.visible = true

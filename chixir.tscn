@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdkhaycm7ewhp"]
+
+[ext_resource type="Texture2D" uid="uid://d0c7flh3vvrv" path="res://assets/chixir.webp" id="1_4nttp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qe8nn"]
+size = Vector2(522, 514)
+
+[node name="chixir" type="Area2D"]
+
+[node name="chixir_spr" type="Sprite2D" parent="."]
+texture = ExtResource("1_4nttp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(36, 12)
+shape = SubResource("RectangleShape2D_qe8nn")

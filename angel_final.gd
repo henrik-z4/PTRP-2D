@@ -7,8 +7,6 @@ extends Area2D
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if GameState.second_angel_dialogue_finished:
-		return
 	if body.name == "main_character":
 		main_character.stop_movement()
 		canvas_layer.offset = Vector2(230,0)

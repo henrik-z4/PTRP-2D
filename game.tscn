@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://bj8u1l5ghu6fk"]
+[gd_scene load_steps=12 format=4 uid="uid://bj8u1l5ghu6fk"]
 
 [ext_resource type="TileSet" uid="uid://ie34udps1u6l" path="res://default_tilemap.tres" id="1_duwmk"]
 [ext_resource type="PackedScene" uid="uid://34pad26l6jjg" path="res://main_character.tscn" id="3_uup3g"]
 [ext_resource type="Script" path="res://main_character.gd" id="4_ces3k"]
+[ext_resource type="Script" path="res://angel.gd" id="4_spa5p"]
 [ext_resource type="PackedScene" uid="uid://bj4xy8uqlbvso" path="res://harlamov.tscn" id="5_4jt86"]
 [ext_resource type="PackedScene" uid="uid://vmdsjjnj1kkt" path="res://angel.tscn" id="6_p8pf8"]
 [ext_resource type="PackedScene" uid="uid://dpncatk8uc2lm" path="res://target_label.tscn" id="6_rwuon"]
@@ -34,6 +35,7 @@ scale = Vector2(0.5, 0.5)
 [node name="angel" parent="." instance=ExtResource("6_p8pf8")]
 position = Vector2(1013, 489)
 scale = Vector2(2, 2)
+script = ExtResource("4_spa5p")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -98,4 +100,5 @@ offset_top = 80.0
 offset_bottom = 560.0
 texture = SubResource("GradientTexture1D_28lwj")
 
+[connection signal="body_entered" from="angel" to="angel" method="_on_body_entered"]
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]

@@ -1,11 +1,18 @@
-[gd_scene load_steps=9 format=4 uid="uid://d20plw63hpu5c"]
+[gd_scene load_steps=18 format=4 uid="uid://d20plw63hpu5c"]
 
 [ext_resource type="TileSet" uid="uid://ie34udps1u6l" path="res://default_tilemap.tres" id="1_de7gd"]
 [ext_resource type="PackedScene" uid="uid://cvifvgipjpefw" path="res://einstein.tscn" id="5_6vewf"]
 [ext_resource type="PackedScene" uid="uid://dpncatk8uc2lm" path="res://target_label.tscn" id="6_1o8aq"]
+[ext_resource type="PackedScene" uid="uid://iesehon5agls" path="res://kireev.tscn" id="6_ey55u"]
+[ext_resource type="Script" path="res://einstein.gd" id="6_fpt4h"]
 [ext_resource type="Texture2D" uid="uid://0p1250ix2u0a" path="res://assets/stupino.JPG" id="6_pfawo"]
 [ext_resource type="PackedScene" uid="uid://34pad26l6jjg" path="res://main_character.tscn" id="8_xjma0"]
+[ext_resource type="Script" path="res://lis.gd" id="9_1fp2u"]
+[ext_resource type="Texture2D" uid="uid://dykinwp2iam1t" path="res://assets/flash.png" id="9_12yaa"]
 [ext_resource type="Script" path="res://main_character.gd" id="9_bvpl0"]
+[ext_resource type="Texture2D" uid="uid://bdm06arvb2gp8" path="res://assets/Lisa.png" id="9_ljpe0"]
+[ext_resource type="Script" path="res://flash.gd" id="9_po2mk"]
+[ext_resource type="Script" path="res://door_final.gd" id="13_qy23e"]
 
 [sub_resource type="Gradient" id="Gradient_lr3um"]
 offsets = PackedFloat32Array(0, 0.438776, 1)
@@ -13,6 +20,12 @@ colors = PackedColorArray(0.182112, 0.244189, 0.42995, 1, 0.127595, 0.143408, 0.
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_28lwj"]
 gradient = SubResource("Gradient_lr3um")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csywh"]
+size = Vector2(89.5, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p430w"]
+size = Vector2(84, 160)
 
 [node name="Node" type="Node"]
 
@@ -79,6 +92,10 @@ texture = SubResource("GradientTexture1D_28lwj")
 
 [node name="einstein" parent="." instance=ExtResource("5_6vewf")]
 position = Vector2(1798, -4)
+script = ExtResource("6_fpt4h")
+
+[node name="kireev" parent="." instance=ExtResource("6_ey55u")]
+position = Vector2(1942, 0)
 
 [node name="pashalka" type="Label" parent="."]
 offset_left = 105.0
@@ -97,3 +114,63 @@ metadata/_edit_group_ = true
 offset_right = 4569.0
 offset_bottom = 3048.0
 texture = ExtResource("6_pfawo")
+
+[node name="dialogue" type="Area2D" parent="."]
+visible = false
+position = Vector2(1596, -202)
+metadata/_edit_group_ = true
+
+[node name="Panel" type="Panel" parent="dialogue"]
+offset_left = -24.0
+offset_top = -13.0
+offset_right = 242.0
+offset_bottom = 112.0
+
+[node name="Label" type="Label" parent="dialogue"]
+offset_left = -9.0
+offset_top = -4.0
+offset_right = 237.0
+offset_bottom = 101.0
+text = "Гевик: Ого! Здравствуйте, Эйнштейн. Здравствуйте, Генерал! Что это вы тут делаете?"
+autowrap_mode = 3
+
+[node name="flash" type="Area2D" parent="."]
+visible = false
+position = Vector2(2069, 0)
+scale = Vector2(2, 2)
+script = ExtResource("9_po2mk")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="flash"]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("9_12yaa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flash"]
+position = Vector2(-0.75, -1.5)
+shape = SubResource("RectangleShape2D_csywh")
+
+[node name="lis" type="Area2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(1072, -5)
+scale = Vector2(2, 2)
+script = ExtResource("9_1fp2u")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="lis"]
+texture = ExtResource("9_ljpe0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lis"]
+
+[node name="door" type="Area2D" parent="."]
+position = Vector2(42, 483)
+script = ExtResource("13_qy23e")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_p430w")
+
+[connection signal="body_entered" from="einstein" to="einstein" method="_on_body_entered"]
+[connection signal="body_entered" from="flash" to="flash" method="_on_body_entered"]
+[connection signal="body_entered" from="door" to="door" method="_on_body_entered"]

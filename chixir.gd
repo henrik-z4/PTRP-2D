@@ -21,22 +21,22 @@ func _on_body_entered(body: Node2D) -> void:
 		dialogue.visible = true
 		dialogue_text.text = "Гевик: Нет времени объяснять, мне срочно нужен ключ для пыточной"
 		await get_tree().create_timer(3.0).timeout
-		# dialogue_text.text = "Солнце: Приветствую. Что случилось?"
-		# await get_tree().create_timer(3.0).timeout
-		# dialogue_text.text = "Гевик: Мне нужны старые детали от компьютеров."
-		# await get_tree().create_timer(3.0).timeout
-		# dialogue_text.text = "Солнце: А ты разве не знаешь обо всех опасностях пыточной?"
-		# await get_tree().create_timer(3.0).timeout
-		# dialogue_text.text = "Гевик: Я знаю, но мне нужно это сделать."
-		# await get_tree().create_timer(2.0).timeout
-		# dialogue_text.text = "Гевик: Я готов пройти через все испытания пыточной."
-		# await get_tree().create_timer(3.0).timeout
-		# dialogue_text.text = "Солнце: Хорошо, я помогу тебе."
-		# await get_tree().create_timer(2.0).timeout
-		# dialogue_text.text = "Солнце: Возьми ключ от пыточной. Будь осторожен."
-		# await get_tree().create_timer(3.0).timeout
-		# dialogue_text.text = "Гевик: Спасибо большое. С богом."
-		# await get_tree().create_timer(2.0).timeout
+		dialogue_text.text = "Солнце: Приветствую. Что случилось?"
+		await get_tree().create_timer(3.0).timeout
+		dialogue_text.text = "Гевик: Мне нужны старые детали от компьютеров."
+		await get_tree().create_timer(3.0).timeout
+		dialogue_text.text = "Солнце: А ты разве не знаешь обо всех опасностях пыточной?"
+		await get_tree().create_timer(3.0).timeout
+		dialogue_text.text = "Гевик: Я знаю, но мне нужно это сделать."
+		await get_tree().create_timer(2.0).timeout
+		dialogue_text.text = "Гевик: Я готов пройти через все испытания пыточной."
+		await get_tree().create_timer(3.0).timeout
+		dialogue_text.text = "Солнце: Хорошо, я помогу тебе."
+		await get_tree().create_timer(2.0).timeout
+		dialogue_text.text = "Солнце: Возьми ключ от пыточной. Будь осторожен."
+		await get_tree().create_timer(3.0).timeout
+		dialogue_text.text = "Гевик: Спасибо большое. С богом."
+		await get_tree().create_timer(2.0).timeout
 		
 		dialogue.visible = false
 		key.visible = true

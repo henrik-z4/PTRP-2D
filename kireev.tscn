@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://iesehon5agls"]
+
+[ext_resource type="Texture2D" uid="uid://dt3dvioeimpv2" path="res://assets/kireev.png" id="1_xdg53"]
+
+[node name="kireev" type="Area2D"]
+
+[node name="kireev_txt" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_xdg53")
+
+[node name="kireev_col" type="CollisionShape2D" parent="."]

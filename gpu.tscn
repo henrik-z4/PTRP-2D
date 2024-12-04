@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4rhrtbytic2v"]
+
+[ext_resource type="Texture2D" uid="uid://bkmx57vlq1fx4" path="res://assets/GPU.png" id="1_jbf6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4tu80"]
+size = Vector2(233, 98)
+
+[node name="gpu" type="Area2D"]
+
+[node name="gpu_sp" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_jbf6e")
+
+[node name="gpu_col" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -8)
+shape = SubResource("RectangleShape2D_4tu80")

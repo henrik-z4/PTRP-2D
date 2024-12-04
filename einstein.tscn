@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvifvgipjpefw"]
+
+[ext_resource type="Texture2D" uid="uid://tsoska02gkqd" path="res://assets/einstein.png" id="1_1bbqg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4pgx"]
+size = Vector2(218, 106)
+
+[node name="einstein" type="Area2D"]
+
+[node name="einstein_sprt" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_1bbqg")
+
+[node name="einstein_col" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_r4pgx")
